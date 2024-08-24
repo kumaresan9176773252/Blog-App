@@ -9,7 +9,10 @@ const cors = require("cors");
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://blog-app-frontend-xpp0.onrender.com', // Replace with your actual frontend URL
+    methods: 'GET,POST,PUT,DELETE',
+}));
 app.use(express.json());
 app.use("/api/user", router);
 app.use("/api/blog", blogrouter);
